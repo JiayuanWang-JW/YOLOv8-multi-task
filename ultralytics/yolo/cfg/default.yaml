@@ -48,6 +48,7 @@ max_det: 300  # maximum number of detections per image
 half: False  # use half precision (FP16)
 dnn: False  # use OpenCV DNN for ONNX inference
 plots: True  # save plots during train/val
+speed: False # calculate the fps follow the hybridnet https://github.com/datvuthanh/HybridNets/blob/main/hybridnets_test.py#L211
 
 # Prediction settings --------------------------------------------------------------------------------------------------
 source:  # source directory for images or videos

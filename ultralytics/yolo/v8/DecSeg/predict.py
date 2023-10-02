@@ -2,14 +2,14 @@
 
 import torch
 
-from ultralytics.yolo.engine.predictor import BasePredictor
+from ultralytics.yolo.engine.predictor_multi import BasePredictor
 from ultralytics.yolo.engine.results import Results
 from ultralytics.yolo.utils import DEFAULT_CFG, ROOT, ops
 
 
 class MultiPredictor(BasePredictor):
 
-    def postprocess(self, preds, img, orig_imgs):
+    def postprocess_det(self, preds, img, orig_imgs):
         """Postprocesses predictions and returns a list of Results objects."""
         preds = ops.non_max_suppression(preds,
                                         self.args.conf,
@@ -27,6 +27,13 @@ class MultiPredictor(BasePredictor):
             img_path = path[i] if isinstance(path, list) else path
             results.append(Results(orig_img=orig_img, path=img_path, names=self.model.names, boxes=pred))
         return results
+
+    def postprocess_seg(self, preds):
+        """Postprocesses YOLO predictions and returns output detections with proto."""
+        preds = torch.nn.functional.interpolate(preds, size=(720, 1280), mode='bilinear', align_corners=False)
+        preds = self.sigmoid(preds)
+        _, preds = torch.max(preds, 1)
+        return preds
 
 
 def predict(cfg=DEFAULT_CFG, use_python=False):

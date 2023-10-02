@@ -75,10 +75,9 @@ class Segment(Detect):
     """YOLOv8 Segment head for segmentation models."""
 
     def __init__(self, nc=80, nm=32, npr=256, ch=()):
-        """Initialize the YOLO model attributes such as the number of masks, prototypes, and the convolution layers."""
         super().__init__(nc, ch)
-        self.npr = 32  # number of class
-        # protos ###### Jiayuan changed self.nm to self.nc
+        ###### Jiayuan changed self.nm to self.nc
+        self.npr = 32  # intermediate convolutional feature dimension
         self.cv1 = Conv(ch[0], self.npr, k=3)
         self.upsample = nn.ConvTranspose2d(self.npr, self.npr//2, 2, 2, 0, bias=True)  # nn.Upsample(scale_factor=2, mode='nearest')
         self.cv2 = Conv(self.npr//2, self.npr//4, k=3)

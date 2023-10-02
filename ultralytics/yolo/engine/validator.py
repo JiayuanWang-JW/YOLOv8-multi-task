@@ -188,6 +188,49 @@ class BaseValidator:
             with dt[0]:
                 batch = self.preprocess(batch)
 
+            if self.args.speed:
+                device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+                model = model.to(device)
+
+                with torch.no_grad():
+                    x = batch[0]['img'][0, ...].to(device)
+                    x.unsqueeze_(0)
+                    # Pre-warming
+                    for _ in range(5):
+                        _ = model(x)
+
+                    # Test for batch_size = 1
+                    print('test1: model inferring')
+                    print('inferring 1 image for 1000 times...')
+
+                    torch.cuda.synchronize()
+                    start_time = time.time()
+
+                    for _ in range(1000):
+                        _ = model(x)
+
+                    torch.cuda.synchronize()
+                    end_time = time.time()
+                    elapsed_time = (end_time - start_time) / 1000
+                    print(f'{elapsed_time} seconds, {1 / elapsed_time} FPS, @batch_size 1')
+
+                    # Test for batch_size = 32
+                    print('test2: model inferring only')
+                    print('inferring images for batch_size 32 for 1000 times...')
+                    x = torch.cat([x] * 32, 0).to(device)
+
+                    torch.cuda.synchronize()
+                    start_time = time.time()
+
+                    for _ in range(1000):
+                        _ = model(x)
+
+                    torch.cuda.synchronize()
+                    end_time = time.time()
+                    elapsed_time = (end_time - start_time) / 1000
+                    print(f'{elapsed_time} seconds, {32 / elapsed_time} FPS, @batch_size 32')
+
+
             # Inference
             with dt[1]:
                 if self.args.task == 'multi':
