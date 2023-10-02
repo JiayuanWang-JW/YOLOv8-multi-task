@@ -116,15 +116,17 @@ cd YOLOv8-multi-task
 pip install -e .
 ```
 
-### Data preparation
+### Data preparation and Pre-trained model
 
 #### Download
 
 - Download the images from [images](https://bdd-data.berkeley.edu/).
 
-- Download the annotations of detection from [detection-object](https://drive.google.com/file/d/1Ge-R8NTxG1eqd4zbryFo-1Uonuh0Nxyl/view?usp=sharing). 
-- Download the annotations of drivable area segmentation from [seg-drivable-10](https://drive.google.com/file/d/1xy_DhUZRHR8yrZG3OwTQAHhYTnXn7URv/view?usp=sharing). 
-- Download the annotations of lane line segmentation from [seg-lane-11](https://drive.google.com/file/d/1lDNTPIQj_YLNZVkksKM25CvCHuquJ8AP/view?usp=sharing). 
+- Pre-trained model: [A-YOLOM](https://uwin365-my.sharepoint.com/:f:/g/personal/wang621_uwindsor_ca/EnoHyXIbTGFDjv1KLccuvrsBWLz6R4_TNVxErMukwCL0mw?e=I8WcKc) # which include two version, scale "n" and "s".
+  
+- Download the annotations of detection from [detection-object](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/EflGScMT-D1MqBTTYUSMdaEBT1wWm5uB8BausmS7fDLsQQ?e=cb7age). 
+- Download the annotations of drivable area segmentation from [seg-drivable-10](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/EWyIyXDFCzRLhERniUiuyIABq257WF4DbNJBDB8Dmok91w?e=hgWtoZ). 
+- Download the annotations of lane line segmentation from [seg-lane-11](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/EUBQBO2KGFtHsexik3WvLZMBuaW1CsnHDTZo5eJ3ESdJNA?e=K6Tsem). 
 
 We recommend the dataset directory structure to be the following:
 
