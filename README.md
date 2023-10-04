@@ -1,12 +1,21 @@
 <div align="left">   
 
+
 ## You Only Look at Once for Real-time and Generic Multi-Task
+
+> [**You Only Look at Once for Real-time and Generic Multi-Task**](https://arxiv.org/pdf/2310.01641.pdf)
+>
+> by Jiayuan Wang, [Q. M. Jonathan Wu](https://scholar.google.com/citations?user=BJSAsE8AAAAJ&hl=zh-CN)<sup> :email:</sup> and [Ning Zhang](https://scholar.google.ca/citations?hl=zh-CN&user=ZcYihtoAAAAJ)
+>
+>  (<sup>:email:</sup>) corresponding author.
+>
+> *arXiv technical report ([arXiv 2310.01641](https://arxiv.org/pdf/2310.01641.pdf))*
 
 
 ---
 
 
-### The Illustration of YOLOP
+### The Illustration of A-YOLOM
 
 ![YOLOv8-multi-task](pictures/structure.png)
 
@@ -228,3 +237,11 @@ You can change the setting in predict.py
 
 If you find our paper and code useful for your research, please consider giving a star :star:   and citation :pencil: :
 
+```BibTeX
+@article{wang2023YOLOM,
+  title={You Only Look at Once for Real-time and Generic Multi-Task},
+  author={Jiayuan Wang, Q. M. Jonathan Wu and Ning Zhang},
+  journal={arXiv preprint arXiv:2310.01641},
+  year={2023}
+}
+```
