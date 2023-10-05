@@ -97,6 +97,8 @@
 | YOLOv8(multi)  | 2008550    | 84.2     | 81.7         | 24.3    |
 | YOLOM(n)       | 15880      | 90.6     | 80.8         | 26.7    |
 
+YOLOv8(multi) and YOLOM(n) only display two segmentation head parameters in total. They indeed have three heads, we ignore the detection head parameters because this is an ablation study for segmentation structure.
+
 
 
   
