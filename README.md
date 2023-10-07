@@ -236,7 +236,7 @@ You can change the setting in predict.py
 ### Note
 This code is easy to extend the tasks to any multi-segmentation and detection tasks, only need to modify the model yaml and dataset yaml file information and create your dataset follows our labels format, please keep in mind, you should keep "det" in your detection tasks name and "seg" in your segmentation tasks name. Then the code will be working. No need to modify the basic code, I have done the necessary work in the basic code.
 
-If you want to change some basic code to implement your idea. Please search the "######Jiayuan" or "###### Jiayuan", I have changed these parts based on `YOLOv8`([code](https://github.com/ultralytics/ultralytics)) to implement multi-task in a single model. 
+If you want to change some basic code to implement your idea. Please search the "###### Jiayuan" or "######Jiayuan", I have changed these parts based on `YOLOv8`([code](https://github.com/ultralytics/ultralytics)) to implement multi-task in a single model. 
 
 
 ## Citation
