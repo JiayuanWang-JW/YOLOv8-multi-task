@@ -240,9 +240,9 @@ You can change the setting in predict.py
 If you find our paper and code useful for your research, please consider giving a star :star:   and citation :pencil: :
 
 ```BibTeX
-@article{wang2023YOLOM,
+@article{wang2023you,
   title={You Only Look at Once for Real-time and Generic Multi-Task},
-  author={Jiayuan Wang, Q. M. Jonathan Wu and Ning Zhang},
+  author={Wang, Jiayuan and Wu, QM and Zhang, Ning},
   journal={arXiv preprint arXiv:2310.01641},
   year={2023}
 }
