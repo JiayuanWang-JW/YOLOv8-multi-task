@@ -120,7 +120,7 @@ YOLOv8(multi) and YOLOM(n) only display two segmentation head parameters in tota
 
 ### Requirement
 
-This codebase has been developed with [**Python==3.7.16**](https://www.python.org/) with [**PyTorch==1.13**](https://pytorch.org/get-started/locally/).
+This codebase has been developed with [**Python==3.7.16**](https://www.python.org/) with [**PyTorch==1.13.1**](https://pytorch.org/get-started/locally/).
 
 ```setup
 cd YOLOv8-multi-task
