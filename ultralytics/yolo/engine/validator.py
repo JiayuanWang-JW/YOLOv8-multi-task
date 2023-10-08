@@ -188,7 +188,7 @@ class BaseValidator:
             with dt[0]:
                 batch = self.preprocess(batch)
 
-            if self.args.speed:
+            if self.args.speed and batch_i==0:
                 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
                 model = model.to(device)
 
