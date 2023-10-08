@@ -215,6 +215,7 @@ model = YOLO('/home/jiayuan/ultralytics-main/ultralytics/runs/best.pt')
 metrics = model.val(data='/home/jiayuan/ultralytics-main/ultralytics/datasets/bdd-multi.yaml',device=[3],task='multi',name='val',iou=0.6,conf=0.001, imgsz=(640,640),classes=[2,3,4,9,10,11],combine_class=[2,3,4,9],single_cls=True)
 # data: Please change the "data" path to yours. You can find it under "./ultralytics/datasets"
 # device: If you have multi-GPUs, please list your GPU numbers, such as [0,1,2,3,4,5,6,7,8]. I do not recommend you use multi-GPU in val because usually, one GPU is enough.
+# speed: If you want to calculate the FPS, you should set "speed=True". This FPS calculation method reference from `HybridNets`([code](https://github.com/datvuthanh/HybridNets))
 ```
 
 ### Prediction
