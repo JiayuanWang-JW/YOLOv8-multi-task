@@ -122,6 +122,8 @@ YOLOv8(multi) and YOLOM(n) only display two segmentation head parameters in tota
 
 This codebase has been developed with [**Python==3.7.16**](https://www.python.org/) with [**PyTorch==1.13.1**](https://pytorch.org/get-started/locally/).
 
+You can use a 1080Ti GPU with 16 batch sizes. That will be fine. Only need more time to train. We recommend using a 4090 or more powerful GPU, which will be fast. 
+
 ```setup
 cd YOLOv8-multi-task
 pip install -e .
