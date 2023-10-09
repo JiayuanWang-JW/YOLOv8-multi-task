@@ -22,9 +22,9 @@
 ### Contributions
 
 * We have developed a lightweight model capable of integrating three tasks into a single unified model. This is particularly beneficial for multi-task that demand real-time processing.
-* We have designed a novel Adaptive Concatenate Module specifically for the neck region of segmentation architectures. This module can adaptively concatenate features, further enhancing the model's generality.
-* We designed a lightweight, and generic segmentation head. No trick, simple and useful. We have a unified loss function for the same type of task head, meaning we don't need to custom design for specific tasks.
-* We evaluated our model on publicly available autonomous driving datasets, achieving competitive results, particularly in terms of inference time and visualization. Moreover, we further assessed our model's performance using real road datasets and significantly outperformed competitors.
+* We have designed a novel Adaptive Concatenate Module specifically for the neck region of segmentation architectures. This module can adaptively concatenate features without manual design, further enhancing the model's generality.
+* We designed a lightweight, simple, and generic segmentation head. We have a unified loss function for the same type of task head, meaning we don't need to custom design for specific tasks. It is only built by a series of convolutional layers.
+* Extensive experiments are conducted based on publicly accessible autonomous driving datasets, which demonstrate that our model can outperform existing works, particularly in terms of inference time and visualization. Moreover, we further conducted experiments using real road datasets, which also demonstrate that our model significantly outperformed the state-of-the-art approaches.
 
 ### Results
 
