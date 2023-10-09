@@ -184,13 +184,21 @@ model = YOLO('/home/jiayuan/ultralytics-main/ultralytics/models/v8/yolov8-bdd-v4
 # You need to change the model path for yours.
 # The model files saved under "./ultralytics/models/v8" 
 model.train(data='/home/jiayuan/ultralytics-main/ultralytics/datasets/bdd-multi-toy.yaml', batch=4, epochs=300, imgsz=(640,640), device=[4], name='v4_640', val=True, task='multi',classes=[2,3,4,9,10,11],combine_class=[2,3,4,9],single_cls=True)
-# data: Please change the "data" path to yours. You can find it under "./ultralytics/datasets"
-# device: If you have multi-GPUs, please list your GPU numbers, such as [0,1,2,3,4,5,6,7,8]
-# name: Your project name, the result and trained model will save under "./ultralytics/runs/multi/Your Project Name"
-# task: If you want to use the Multi-task model, please keep "multi" here
-# classes: You can change this to control which classfication in training, 10 and 11 means drivable area and lane line segmentation. You can create or change dataset map under "./ultralytics/datasets/bdd-multi.yaml"
-# combine_class: means the model will combine "classes" into one class, such as our project combining the "car", "bus", "truck", and "train" into "vehicle".
 ```
+- data: Please change the "data" path to yours. You can find it under "./ultralytics/datasets"
+
+- device: If you have multi-GPUs, please list your GPU numbers, such as [0,1,2,3,4,5,6,7,8]
+
+- name: Your project name, the result and trained model will save under "./ultralytics/runs/multi/Your Project Name"
+
+- task: If you want to use the Multi-task model, please keep "multi" here
+
+- classes: You can change this to control which classfication in training, 10 and 11 means drivable area and lane line segmentation. You can create or change dataset map under "./ultralytics/datasets/bdd-multi.yaml"
+
+- combine_class: means the model will combine "classes" into one class, such as our project combining the "car", "bus", "truck", and "train" into "vehicle".
+
+- single_cls: This will combine whole detection classes into one class, for example, you have 7 classes in your dataset, and when you use "single_cls", it will automatically combine them into one class. When you set single_cls=False or delete the single_cls from model.train(). Please follow the below Note to change the "tnc" in both dataset.yaml and model.yaml, the output of the detection head as well. 
+
 
 
 
@@ -213,10 +221,11 @@ sys.path.insert(0, "/home/jiayuan/yolom/ultralytics")
 model = YOLO('/home/jiayuan/ultralytics-main/ultralytics/runs/best.pt')
 # Please change this path to your well-trained model. You can use our provide the pre-train model or your model under "./ultralytics/runs/multi/Your Project Name/weight/best.pt"
 metrics = model.val(data='/home/jiayuan/ultralytics-main/ultralytics/datasets/bdd-multi.yaml',device=[3],task='multi',name='val',iou=0.6,conf=0.001, imgsz=(640,640),classes=[2,3,4,9,10,11],combine_class=[2,3,4,9],single_cls=True)
-# data: Please change the "data" path to yours. You can find it under "./ultralytics/datasets"
-# device: If you have multi-GPUs, please list your GPU numbers, such as [0,1,2,3,4,5,6,7,8]. I do not recommend you use multi-GPU in val because usually, one GPU is enough.
-# speed: If you want to calculate the FPS, you should set "speed=True". This FPS calculation method reference from `HybridNets`([code](https://github.com/datvuthanh/HybridNets))
 ```
+- data: Please change the "data" path to yours. You can find it under "./ultralytics/datasets"
+- device: If you have multi-GPUs, please list your GPU numbers, such as [0,1,2,3,4,5,6,7,8]. I do not recommend you use multi-GPU in val because usually, one GPU is enough.
+- speed: If you want to calculate the FPS, you should set "speed=True". This FPS calculation method reference from `HybridNets`([code](https://github.com/datvuthanh/HybridNets))
+- single_cls: should keep the same bool value with training. 
 
 ### Prediction
 
@@ -228,18 +237,29 @@ You can change the setting in predict.py
 ```python
 # setting 
 
-# source: Your input or want to predict images folder.
-# show_labels=False: close the display of the labels.
-# boxes=False: close the bos for segmentation tasks.
-
-### The predict results will save under "runs" folder
-
+sys.path.insert(0, "/home/jiayuan/ultralytics-main/ultralytics")
+number = 3 #input how many tasks in your work, if you have 1 detection and 3 segmentation tasks, here should be 4.
+model = YOLO('/home/jiayuan/ultralytics-main/ultralytics/runs/best.pt')  
+model.predict(source='/data/jiayuan/dash_camara_dataset/daytime', imgsz=(384,672), device=[3],name='v4_daytime', save=True, conf=0.25, iou=0.45, show_labels=False)
+# The predict results will save under "runs" folder
 ```
 
-### Note
-This code is easy to extend the tasks to any multi-segmentation and detection tasks, only need to modify the model yaml and dataset yaml file information and create your dataset follows our labels format, please keep in mind, you should keep "det" in your detection tasks name and "seg" in your segmentation tasks name. Then the code will be working. No need to modify the basic code, I have done the necessary work in the basic code.
+- source: Your input or want to predict images folder.
+- show_labels=False: close the display of the labels.
+- boxes=False: close the bos for segmentation tasks.
 
-If you want to change some basic code to implement your idea. Please search the "###### Jiayuan" or "######Jiayuan", I have changed these parts based on `YOLOv8`([code](https://github.com/ultralytics/ultralytics)) to implement multi-task in a single model. 
+
+
+
+
+### Note
+- This code is easy to extend the tasks to any multi-segmentation and detection tasks, only need to modify the model yaml and dataset yaml file information and create your dataset follows our labels format, please keep in mind, you should keep "det" in your detection tasks name and "seg" in your segmentation tasks name. Then the code will be working. No need to modify the basic code, I have done the necessary work in the basic code.
+
+- Please keep in mind, when you change the detection task number of classes, please change the "tnc" in dataset.yaml and modle.yaml. "tcn" means the total number of classes, including detection and segmentation. Such as you have 7 classes for detection, 1 segmentation and another 1 segmentation. "tnc" should be set to 9. 
+
+- You also need to change the detection head output numbers, that in model.yaml, such as "  - [[15, 18, 21], 1, Detect, [int number for detection class]]  # 36 Detect(P3, P4, P5)", please change "int number for detection class" to your number of classes in your detection tasks, follow above examples, here should be 7.
+
+- If you want to change some basic code to implement your idea. Please search the "###### Jiayuan" or "######Jiayuan", I have changed these parts based on `YOLOv8`([code](https://github.com/ultralytics/ultralytics)) to implement multi-task in a single model. 
 
 
 ## Citation
