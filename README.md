@@ -17,7 +17,7 @@
 
 ### The Illustration of A-YOLOM
 
-![YOLOv8-multi-task](pictures/structure.png)
+![YOLOv8-multi-task](pictures/structure.jpg)
 
 ### Contributions
 
