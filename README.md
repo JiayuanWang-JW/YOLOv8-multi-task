@@ -244,6 +244,8 @@ model.predict(source='/data/jiayuan/dash_camara_dataset/daytime', imgsz=(384,672
 # The predict results will save under "runs" folder
 ```
 
+PS: If you want to use my provided pre-trained model, please make sure that your input images are (720,1280) size and keep "imgsz=(384,672)" to achieve the best performance, you can change the "imgsz" value, but the results maybe different because he is different from the training size.
+
 - source: Your input or want to predict images folder.
 - show_labels=False: close the display of the labels. Please keep in mind, when you use a pre-trained model with "single cell=True", labels will default to display the first class name instead.
 - boxes=False: close the bos for segmentation tasks.
