@@ -2,6 +2,7 @@
 
 
 ## You Only Look at Once for Real-time and Generic Multi-Task
+This repository(Yolov8 multi-task) is the official PyTorch implementation of the paper "You Only Look at Once for Real-time and Generic Multi-Task".  
 
 > [**You Only Look at Once for Real-time and Generic Multi-Task**](https://arxiv.org/pdf/2310.01641.pdf)
 >
