@@ -387,7 +387,10 @@ class YOLO:
         self.trainer.train()
         # Update model and cfg after training
         if RANK in (-1, 0):
-            self.model, _ = attempt_load_one_weight(str(self.trainer.best))
+            if self.trainer.args.val:
+                self.model, _ = attempt_load_one_weight(str(self.trainer.best))
+            else:
+                self.model, _ = attempt_load_one_weight(str(self.trainer.last))
             self.overrides = self.model.args
             self.metrics = getattr(self.trainer.validator, 'metrics', None)  # TODO: no metrics returned by DDP
 

@@ -445,9 +445,10 @@ class BaseTrainer:
                     self.metrics, self.fitness = self.validate()
                 ######Jiayuan
                 if self.args.task == 'multi':
-                    for i in range(len(losses)):
-                        self.save_metrics(metrics={**self.label_loss_items_val(self.tloss[i],prefix='train',task=self.data['labels_list'][i]), **self.metrics[i], **self.lr})
-                    self.stop = self.stopper(epoch + 1, sum(self.fitness))
+                    if self.args.val:
+                        for i in range(len(losses)):
+                            self.save_metrics(metrics={**self.label_loss_items_val(self.tloss[i],prefix='train',task=self.data['labels_list'][i]), **self.metrics[i], **self.lr})
+                        self.stop = self.stopper(epoch + 1, sum(self.fitness))
                 else:
                     self.save_metrics(metrics={**self.label_loss_items(self.tloss), **self.metrics, **self.lr})
                     self.stop = self.stopper(epoch + 1, self.fitness)
@@ -498,6 +499,8 @@ class BaseTrainer:
 
         # Save last, best and delete
         torch.save(ckpt, self.last)
+        if not self.args.val:
+            return
         if self.args.task == 'multi':
             if self.best_fitness == sum(self.fitness):
                 torch.save(ckpt, self.best)
