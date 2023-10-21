@@ -13,7 +13,7 @@ This repository(Yolov8 multi-task) is the official PyTorch implementation of the
 > *arXiv technical report ([arXiv 2310.01641](https://arxiv.org/pdf/2310.01641.pdf))*
 
 ## Revision
-- 2023-10-21 - In our manuscript, we introduced that we have three components for detection loss in Section III C. Actually, it may confuse the reader. We think using two branches to describe is more accurate to present. They include classification and bounding box branches. Classification branches include BCE loss. Bounding box branches include two components: DFL and CIoU loss. Please read the `Loss`([code](https://github.com/JiayuanWang-JW/YOLOv8-multi-task/blob/main/ultralytics/yolo/v8/DecSeg/train.py#L196)) to get more information, I hope this will help you to understand. We will revise this part in the manuscript soon.
+- 2023-10-21 - In our manuscript, we introduced that we have three components for detection loss in Section III C. Actually, it may confuse the reader. We think using two branches to describe is more accurate. They include classification and bounding box branches. Classification branches include BCE loss. Bounding box branches include two components: DFL and CIoU loss. Please read the `Loss`([code](https://github.com/JiayuanWang-JW/YOLOv8-multi-task/blob/main/ultralytics/yolo/v8/DecSeg/train.py#L196)) to get more information, I hope this will help you to understand. We will revise this part in the manuscript soon.
 ---
 
 
