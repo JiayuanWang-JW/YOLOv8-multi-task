@@ -126,6 +126,8 @@ This codebase has been developed with [**Python==3.7.16**](https://www.python.or
 
 You can use a 1080Ti GPU with 16 batch sizes. That will be fine. Only need more time to train. We recommend using a 4090 or more powerful GPU, which will be fast. 
 
+I strongly recommend you create a pure environment and follow my instructions to build yours. Otherwise, you may meet lots of issues because the YOLOv8 has lots of mechanisms to detect your environment package automatically. Then it will change some variable values to further affect the code running. 
+
 ```setup
 cd YOLOv8-multi-task
 pip install -e .
