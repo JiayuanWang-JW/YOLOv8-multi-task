@@ -126,8 +126,6 @@ This codebase has been developed with [**Python==3.7.16**](https://www.python.or
 
 You can use a 1080Ti GPU with 16 batch sizes. That will be fine. Only need more time to train. We recommend using a 4090 or more powerful GPU, which will be fast. 
 
-Please make sure to follow my instructions to build your environment. Otherwise, you will install the latest ultralytics. This repository was built based on the version of Ultralytics YOLOv8.0.105. When you follow my instruction to build your ultralytics, that should be the same version. This code can not use the latest ultralytics because they changed some functions. 
-
 ```setup
 cd YOLOv8-multi-task
 pip install -e .
