@@ -13,7 +13,7 @@ This repository(Yolov8 multi-task) is the official PyTorch implementation of the
 > *arXiv technical report ([arXiv 2310.01641](https://arxiv.org/pdf/2310.01641.pdf))*
 
 ## Revision
-- 2023-10-21 - In our manuscript, we introduced that we have three components for detection loss in Section III C. Actually, it may confuse the reader. We think using two branches to describe is more accurate. They include classification and bounding box branches. Classification branches include BCE loss. Bounding box branches include two components: DFL and CIoU loss. Please read the `Loss`([code](https://github.com/JiayuanWang-JW/YOLOv8-multi-task/blob/main/ultralytics/yolo/v8/DecSeg/train.py#L196)) to get more information, I hope this will help you to understand. We will revise this part in the manuscript soon.
+- 2023-10-21 - In our manuscript, we introduced that we have three components for detection loss in Section III C. Actually, it may confuse the reader. We think using two branches to describe is more accurate. They include classification and bounding box branches. Classification branches include BCE loss. Bounding box branches include two components: DFL and CIoU loss. Please read the `Loss`([code](https://github.com/JiayuanWang-JW/YOLOv8-multi-task/blob/main/ultralytics/yolo/v8/DecSeg/train.py#L196)) to get more information, We hope this will help you to understand. We will revise this part in the manuscript soon.
 ---
 
 
@@ -126,7 +126,7 @@ This codebase has been developed with [**Python==3.7.16**](https://www.python.or
 
 You can use a 1080Ti GPU with 16 batch sizes. That will be fine. Only need more time to train. We recommend using a 4090 or more powerful GPU, which will be fast. 
 
-I strongly recommend you create a pure environment and follow my instructions to build yours. Otherwise, you may meet lots of issues because the YOLOv8 has lots of mechanisms to detect your environment package automatically. Then it will change some variable values to further affect the code running. 
+We strongly recommend you create a pure environment and follow our instructions to build yours. Otherwise, you may encounter some issues because the YOLOv8 has many mechanisms to detect your environment package automatically. Then it will change some variable values to further affect the code running. 
 
 ```setup
 cd YOLOv8-multi-task
@@ -227,7 +227,7 @@ model = YOLO('/home/jiayuan/ultralytics-main/ultralytics/runs/best.pt')
 metrics = model.val(data='/home/jiayuan/ultralytics-main/ultralytics/datasets/bdd-multi.yaml',device=[3],task='multi',name='val',iou=0.6,conf=0.001, imgsz=(640,640),classes=[2,3,4,9,10,11],combine_class=[2,3,4,9],single_cls=True)
 ```
 - data: Please change the "data" path to yours. You can find it under "./ultralytics/datasets"
-- device: If you have multi-GPUs, please list your GPU numbers, such as [0,1,2,3,4,5,6,7,8]. I do not recommend you use multi-GPU in val because usually, one GPU is enough.
+- device: If you have multi-GPUs, please list your GPU numbers, such as [0,1,2,3,4,5,6,7,8]. We do not recommend you use multi-GPU in val because usually, one GPU is enough.
 - speed: If you want to calculate the FPS, you should set "speed=True". This FPS calculation method reference from `HybridNets`([code](https://github.com/datvuthanh/HybridNets))
 - single_cls: should keep the same bool value with training. 
 
@@ -248,7 +248,7 @@ model.predict(source='/data/jiayuan/dash_camara_dataset/daytime', imgsz=(384,672
 # The predict results will save under "runs" folder
 ```
 
-PS: If you want to use my provided pre-trained model, please make sure that your input images are (720,1280) size and keep "imgsz=(384,672)" to achieve the best performance, you can change the "imgsz" value, but the results maybe different because he is different from the training size.
+PS: If you want to use our provided pre-trained model, please make sure that your input images are (720,1280) size and keep "imgsz=(384,672)" to achieve the best performance, you can change the "imgsz" value, but the results maybe different because he is different from the training size.
 
 - source: Your input or want to predict images folder.
 - show_labels=False: close the display of the labels. Please keep in mind, when you use a pre-trained model with "single cell=True", labels will default to display the first class name instead.
@@ -259,7 +259,7 @@ PS: If you want to use my provided pre-trained model, please make sure that your
 
 
 ### Note
-- This code is easy to extend the tasks to any multi-segmentation and detection tasks, only need to modify the model yaml and dataset yaml file information and create your dataset follows our labels format, please keep in mind, you should keep "det" in your detection tasks name and "seg" in your segmentation tasks name. Then the code will be working. No need to modify the basic code, I have done the necessary work in the basic code.
+- This code is easy to extend the tasks to any multi-segmentation and detection tasks, only need to modify the model yaml and dataset yaml file information and create your dataset follows our labels format, please keep in mind, you should keep "det" in your detection tasks name and "seg" in your segmentation tasks name. Then the code will be working. No need to modify the basic code, We have done the necessary work in the basic code.
 
 - Please keep in mind, when you change the detection task number of classes, please change the "tnc" in dataset.yaml and modle.yaml. "tcn" means the total number of classes, including detection and segmentation. Such as you have 7 classes for detection, 1 segmentation and another 1 segmentation. "tnc" should be set to 9.
 
@@ -267,7 +267,8 @@ PS: If you want to use my provided pre-trained model, please make sure that your
 
   - You also need to change the detection head output numbers, that in model.yaml, such as "  - [[15, 18, 21], 1, Detect, [int number for detection class]]  # 36 Detect(P3, P4, P5)", please change "int number for detection class" to your number of classes in your detection tasks, follow above examples, here should be 7.
 
-- If you want to change some basic code to implement your idea. Please search the "###### Jiayuan" or "######Jiayuan", I have changed these parts based on `YOLOv8`([code](https://github.com/ultralytics/ultralytics)) to implement multi-task in a single model. 
+- If you want to change some basic code to implement your idea. Please search the "###### Jiayuan" or "######Jiayuan", We have changed these parts based on `YOLOv8`([code](https://github.com/ultralytics/ultralytics)) to implement multi-task in a single model.
+
 
 
 ## Citation
