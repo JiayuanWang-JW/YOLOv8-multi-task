@@ -13,7 +13,8 @@ This repository(Yolov8 multi-task) is the official PyTorch implementation of the
 > *arXiv technical report ([arXiv 2310.01641](https://arxiv.org/pdf/2310.01641.pdf))*
 
 ---
-
+### Update:
+Nov.5: We revised the structure of the segmentation neck. We will update the manuscript soon. Please use this repository model structure to learn, this matches with the code. 
 
 ### The Illustration of A-YOLOM
 
