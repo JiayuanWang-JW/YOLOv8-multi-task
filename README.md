@@ -18,7 +18,7 @@ Nov.5: We revised the structure of the segmentation neck. We will update the man
 
 ### The Illustration of A-YOLOM
 
-![YOLOv8-multi-task](pictures/model_structure.jpg)
+![YOLOv8-multi-task](pictures/constructure.jpg)
 
 ### Contributions
 
