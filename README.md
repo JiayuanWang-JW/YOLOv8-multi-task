@@ -17,7 +17,7 @@ This repository(Yolov8 multi-task) is the official PyTorch implementation of the
 
 ### The Illustration of A-YOLOM
 
-![YOLOv8-multi-task](pictures/structure.jpg)
+![YOLOv8-multi-task](pictures/model_structure.jpg)
 
 ### Contributions
 
