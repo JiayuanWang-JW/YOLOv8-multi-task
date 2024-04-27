@@ -4,17 +4,15 @@
 ## You Only Look at Once for Real-time and Generic Multi-Task
 This repository(Yolov8 multi-task) is the official PyTorch implementation of the paper "You Only Look at Once for Real-time and Generic Multi-Task".  
 
-> [**You Only Look at Once for Real-time and Generic Multi-Task**](https://arxiv.org/pdf/2310.01641.pdf)
+> [**You Only Look at Once for Real-time and Generic Multi-Task**](https://ieeexplore.ieee.org/document/10509552)
 >
-> by Jiayuan Wang, [Q. M. Jonathan Wu](https://scholar.google.com/citations?user=BJSAsE8AAAAJ&hl=zh-CN)<sup> :email:</sup> and [Ning Zhang](https://scholar.google.ca/citations?hl=zh-CN&user=ZcYihtoAAAAJ)
+> by [Jiayuan Wang](https://scholar.google.ca/citations?user=1z6x5_UAAAAJ&hl=zh-CN&oi=ao), [Q. M. Jonathan Wu](https://scholar.google.com/citations?user=BJSAsE8AAAAJ&hl=zh-CN)<sup> :email:</sup> and [Ning Zhang](https://scholar.google.ca/citations?hl=zh-CN&user=ZcYihtoAAAAJ)
 >
 >  (<sup>:email:</sup>) corresponding author.
 >
-> *arXiv technical report ([arXiv 2310.01641](https://arxiv.org/pdf/2310.01641.pdf))*
+> *[IEEE Transactions on Vehicular Technology](https://ieeexplore.ieee.org/document/10509552)*
 
 ---
-### Update:
-Nov.5: We revised the structure of the segmentation neck. We will update the manuscript soon. Please use this repository model structure to learn, this matches with the code. 
 
 ### The Illustration of A-YOLOM
 
@@ -275,10 +273,12 @@ PS: If you want to use our provided pre-trained model, please make sure that you
 If you find our paper and code useful for your research, please consider giving a star :star:   and citation :pencil: :
 
 ```BibTeX
-@article{wang2023you,
-  title={You Only Look at Once for Real-time and Generic Multi-Task},
-  author={Wang, Jiayuan and Wu, QM and Zhang, Ning},
-  journal={arXiv preprint arXiv:2310.01641},
-  year={2023}
-}
+@ARTICLE{wang2023you,
+  author={Wang, Jiayuan and Wu, Q. M. Jonathan and Zhang, Ning},
+  journal={IEEE Transactions on Vehicular Technology}, 
+  title={You Only Look at Once for Real-Time and Generic Multi-Task}, 
+  year={2024},
+  pages={1-13},
+  keywords={Multi-task learning;panoptic driving perception;object detection;drivable area segmentation;lane line segmentation},
+  doi={10.1109/TVT.2024.3394350}}
 ```
