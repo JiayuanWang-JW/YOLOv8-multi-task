@@ -273,7 +273,7 @@ PS: If you want to use our provided pre-trained model, please make sure that you
 If you find our paper and code useful for your research, please consider giving a star :star:   and citation :pencil: :
 
 ```BibTeX
-@ARTICLE{wang2023you,
+@ARTICLE{wang2024you,
   author={Wang, Jiayuan and Wu, Q. M. Jonathan and Zhang, Ning},
   journal={IEEE Transactions on Vehicular Technology}, 
   title={You Only Look at Once for Real-Time and Generic Multi-Task}, 
