@@ -102,10 +102,11 @@ class BaseMixTransform:
         ########
 
         elif self.dataset.together:
-            mix_labels_list = []
-            for count in range(len(indexes)):
-                tem_list = [file[count] for file in mix_labels]
-                mix_labels_list.append(tem_list)
+            mix_labels_list = list(zip(*mix_labels))
+            # mix_labels_list = []
+            # for count in range(len(indexes)):
+            #     tem_list = [file[count] for file in mix_labels]
+            #     mix_labels_list.append(tem_list)
 
         if self.pre_transform is not None:
             for mix_labels in mix_labels_list:
