@@ -193,7 +193,7 @@ class BasePredictor:
         if stream:
             return self.stream_inference(source, model)
         else:
-            self.stream_inference(source, model) # merge list of Result into one
+            return list(self.stream_inference(source, model)) # merge list of Result into one
 
     def predict_cli(self, source=None, model=None):
         """Method used for CLI prediction. It uses always generator as outputs as not required by CLI mode."""
@@ -288,6 +288,7 @@ class BasePredictor:
                 if self.args.save and self.plotted_img is not None:
                     self.save_preds(vid_cap, i, str(self.save_dir / p.name))
             # self.run_callbacks('on_predict_batch_end')
+            yield from self.results
 
 
             # Print time (inference-only)
