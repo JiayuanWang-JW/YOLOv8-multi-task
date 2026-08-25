@@ -135,11 +135,11 @@ pip install -e .
 
 - Download the images from [images](https://bdd-data.berkeley.edu/).
 
-- Pre-trained model: [A-YOLOM](https://uwin365-my.sharepoint.com/:f:/g/personal/wang621_uwindsor_ca/EoUsIoFgcEhBgnO4kTjDQG4BUUSHMFXG4ami9qjvTUTofA?e=0xuAJG) # which include two version, scale "n" and "s".
+- Pre-trained model: [A-YOLOM](https://uwin365-my.sharepoint.com/:f:/g/personal/wang621_uwindsor_ca/IgCFLCKBYHBIQYJzuJE4w0BuAVFEhzBVxuGpovao701E6Hw?e=zE52Do) # which include two version, scale "n" and "s".
   
-- Download the annotations of detection from [detection-object](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/EeHOFLpSbp1EpN3FA1T97xABbjVEoeYefI8Kx0uKieR6xw?e=tnqHHx). 
-- Download the annotations of drivable area segmentation from [seg-drivable-10](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/EYu4C5h9qjZNg2HkNkw9nT0BImRO9HnTl2rozFFhD7zj-Q?e=gFLhpv). 
-- Download the annotations of lane line segmentation from [seg-lane-11](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/EZowlpA7sKZAuXZpphDvTBABIvAOZ6957aTYplBYGFLpeQ?e=4DNH5W). 
+- Download the annotations of detection from [detection-object](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/IQDhzhS6Um6dRKTdxQNU_e8QAW41RKHmHnyPCsdLionkesc?e=WYjCfn). 
+- Download the annotations of drivable area segmentation from [seg-drivable-10](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/IQCaMJaQO7CmQLl2aaYQ70wQASLwDmevee2k2KZQWBhS6Xk?e=hM72fG). 
+- Download the annotations of lane line segmentation from [seg-lane-11](https://uwin365-my.sharepoint.com/:u:/g/personal/wang621_uwindsor_ca/IQCLuAuYfao2TYNh5DZMPZ09ASJkTvR505dq6MxRYQ-84_k?e=HTHI1p). 
 
 We recommend the dataset directory structure to be the following:
 
